@@ -1,0 +1,27 @@
+#buttonsArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1%;
+}
+
+.container {
+    background-color: hsl(58, 1%, 40%);
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 1%;
+    border: 2px solid #ffc107;
+}
+
+#searches{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

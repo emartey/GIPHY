@@ -3,10 +3,6 @@ $(document).ready(function () {
 
 });
 
-
-
-
-
 var searchArray = ["dog", "cat", "bird", "cow", "horse"];
 
 function populateButtons(searchArray, classToAdd, areaToAddTo) {
@@ -33,9 +29,12 @@ $(document).on('click', '.searchButton', function () {
 
         for (var i = 0; i < response.data.length; i++) {
             $('#search-input').empty();
-            var searchDiv = $('<div class= "search-item">');
+            var searchDiv = $('<div class= "card" id= "search-item">');
             var rating = response.data[i].rating;
-            var p = $('<p>').text('Rating: ' + rating);
+            var p = $('<p>').text('Rating: ' + rating).css({
+                "visibility": "visible",
+                "display": "block"
+            });
             var animated = response.data[i].images.fixed_height.url;
             var still = response.data[i].images.fixed_height_still.url;
             var image = $('<img>');
@@ -45,7 +44,7 @@ $(document).on('click', '.searchButton', function () {
             image.attr('data-state', 'still');
             image.addClass('searchImage');
             searchDiv.append(p);
-            searchDiv.append(image);
+            searchDiv.prepend(image);
             $('#searches').append(searchDiv);
         }
 
@@ -67,7 +66,7 @@ $(document).on('click', '.searchImage', function () {
 })
 
 $('.btn').on('click', function (event) {
-    // var addSearch = $('<button>')
+
     event.preventDefault();
     var newSearch = $('input').eq(0).val().toLowerCase();
 
@@ -77,6 +76,10 @@ $('.btn').on('click', function (event) {
     populateButtons(searchArray, 'searchButton', '#buttonsArea');
 
 });
+
+
+
+
 
 
 
