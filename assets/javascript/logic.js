@@ -1,10 +1,13 @@
-$(function () {
+$(document).ready(function () {
     populateButtons(searchArray, 'searchButton', '#buttonsArea')
 
 });
 
 
-var searchArray = ["Dog", "Cat", "Bird"];
+
+
+
+var searchArray = ["dog", "cat", "bird", "cow", "horse"];
 
 function populateButtons(searchArray, classToAdd, areaToAddTo) {
     $(areaToAddTo).empty();
@@ -19,7 +22,7 @@ function populateButtons(searchArray, classToAdd, areaToAddTo) {
 
 $(document).on('click', '.searchButton', function () {
     $('#searches').empty();
-    var type = $(this).data('type');
+    var type = $(this).attr('data-type');
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         type + "&api_key=4FjTj3ftqhkLlx64m54UyQtsPQUbdiXN&limit=10";
 
@@ -29,7 +32,7 @@ $(document).on('click', '.searchButton', function () {
     }).done(function (response) {
 
         for (var i = 0; i < response.data.length; i++) {
-
+            $('#search-input').empty();
             var searchDiv = $('<div class= "search-item">');
             var rating = response.data[i].rating;
             var p = $('<p>').text('Rating: ' + rating);
@@ -63,12 +66,18 @@ $(document).on('click', '.searchImage', function () {
     }
 })
 
-$('#addSearch').on('click', function (event) {
+$('.btn').on('click', function (event) {
+    // var addSearch = $('<button>')
     event.preventDefault();
-    var newSearch = $('#search-input').eq(0).val();
-    searchArray.push(newSearch);
-    populateButtons(searchArray, 'searchButton', '#buttonsArea');
-    $("#search-input").val("");
+    var newSearch = $('input').eq(0).val().toLowerCase();
 
-})
+    searchArray.push(newSearch);
+
+
+    populateButtons(searchArray, 'searchButton', '#buttonsArea');
+
+});
+
+
+
 
