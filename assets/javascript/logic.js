@@ -27,7 +27,7 @@ $(document).on('click', '.searchButton', function () {
         url: queryURL,
         method: 'GET'
     }).done(function (response) {
-        console.log(response)
+
         for (var i = 0; i < response.data.length; i++) {
 
             var searchDiv = $('<div class= "search-item">');
@@ -52,4 +52,23 @@ $(document).on('click', '.searchButton', function () {
 
 })
 
+$(document).on('click', '.searchImage', function () {
+    var state = $(this).attr('data-state');
+    if (state == 'still') {
+        $(this).attr('src', $(this).data('animated'));
+        $(this).attr('data-state', 'animated');
+    } else {
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+})
+
+$('#addSearch').on('click', function (event) {
+    event.preventDefault();
+    var newSearch = $('#search-input').eq(0).val();
+    searchArray.push(newSearch);
+    populateButtons(searchArray, 'searchButton', '#buttonsArea');
+    $("#search-input").val("");
+
+})
 
