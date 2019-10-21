@@ -3,6 +3,11 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 1%;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: black;
+    border-bottom: 2px solid pink;
 }
 
 .container {
@@ -17,11 +22,50 @@
     margin-right: auto;
     margin-left: auto;
     border-radius: 1%;
-    border: 2px solid #ffc107;
+    border: 2px solid pink;
 }
 
 #searches{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.card{
+    position: relative;
+   
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: pink;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    
+    margin: 1% 0 3% 0;
+}
+
+p{
+    margin-top:0;
+    margin-bottom:0;
+    background-color: black;
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+img{
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 3.0rem;
+    background-color: black;
+    border-top: 2px solid pink;
+    text-align: center;
 }
